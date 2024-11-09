@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/AVILA.jpg" type="image/x-icon">
+    <title>Avila Food</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Avila Food</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('Menu')">Menú</a></li>
+                <li><a href="#" onclick="showSection('reviews')">Reseñas</a></li>
+                <li><a href="#" onclick="showSection('Trabajá con nosotros')">Trabajá con nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de bienvenida -->
+        <section id="home" class="section active">
+            <h2>Bienvenidos a Avila Food</h2>
+            <p>¡Disfruta de la mejor comida Venezolana en la ciudad!</p>
+            <h2>Nuevos productos de comida venezolana</h2>
+            <p>Te traemos los últimos sabores y combinaciones de la auténtica cocina venezolana. ¡Déjate sorprender por nuestros nuevos platos y disfruta de una experiencia gastronómica única!</p>
+            <div class="new-product-list">
+                <div class="new-product">
+                    <h3>Arepa Reina Pepiada</h3>
+                    <p>Arepa rellena con pollo, aguacate y mayonesa, una mezcla tradicional y deliciosa.</p>
+                    <img src="Images/1623679100610.jpg" alt="Arepa Reina Pepiada" width="180" height="180">
+                </div>
+                <div class="new-product">
+                    <h3>Tequeños</h3>
+                    <p>Palitos de queso envueltos en masa y fritos, perfectos para compartir.</p>
+                    <img src="Images/descarga.jpg" alt="Tequeños" width="180" height="180">
+                </div>
+            </div>
+        </section>
+
+<!-- Menú -->
+<section id="Menu" class="section">
+    <h2>Menú</h2>
+    <div class="product-list">
+        <div class="product" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="Images/Chachapa.jpg" alt="Cachapa" width="180" height="180" style="margin-right: 20px;">
+            <div>
+                <h3>Cachapa con queso llanero</h3>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>Queso llanero</li>
+                            <li>Carne desmechada</li>
+                            <li>Pollo al grill</li>
+                            <li>Jamón y queso</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="Images/pataconas-desmechadas-1587.jpg" alt="Patacón con Carne" width="180" height="180" style="margin-right: 20px;">
+            <div>
+                <h3>Patacón con Carne</h3>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>Carne desmechada</li>
+                            <li>Pechuga de pollo</li>
+                            <li>Atún con mayonesa</li>
+                            <li>Vegetales asados</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="Images/Emapnadas.jpg" alt="Empanadas" width="180" height="180" style="margin-right: 20px;">
+            <div>
+                <h3>Empanadas</h3>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>Carne molida</li>
+                            <li>Pollo desmenuzado</li>
+                            <li>Queso y Jamon</li>
+                            <li>Cerdo</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="Images/hamburguesa-venezolana.jpg" alt="Hamburguesas" width="180" height="180" style="margin-right: 20px;">
+            <div>
+                <h3>Hamburguesas</h3>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>Carne de res</li>
+                            <li>Pechuga de pollo</li>
+                            <li>Hamburguesa vegetariana</li>
+                            <li>Costilla de Cerdo</li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+        <!-- Reseñas -->
+        <section id="reviews" class="section">
+            <h2>Reseñas de Nuestros Clientes</h2>
+            <div class="reviews-grid">
+                <div class="review">"¡Excelente sabor y servicio!" - Juan</div>
+                <div class="review">"Me encantaron las papas fritas." - María</div>
+                <div class="review">"Volveré sin duda." - Pedro</div>
+            </div>
+        </section>
+
+        <!-- Trabajá con nosotros -->
+        <section id="Trabajá con nosotros" class="section">
+            <h2>Trabajá con nosotros</h2>
+            <form action="https://formspree.io/f/myylnnpp" method="POST">
+                <fieldset>
+                    <legend>Registro de usuario - Ingrese sus datos</legend>
+                    <div class="form-row">
+                        <label for="name">Nombre/s</label>
+                        <input type="text" name="name" id="name" required minlength="3" maxlength="10">
+                    </div>
+                    <div class="form-row">
+                        <label for="lastname">Apellido/s</label>
+                        <input type="text" name="lastname" id="lastname" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" name="phone" id="phone" placeholder="11-2222-3333" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}">
+                    </div>
+                    <div class="form-row">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" name="direccion" id="direccion" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="codPos">Código Postal</label>
+                        <input type="number" name="codPos" id="codPos" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="date">Fecha de Nacimiento</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="experiencia">Hablame sobre ti y tu experiencia:</label>
+                        <textarea id="experiencia" name="experiencia" rows="6" cols="50" placeholder="Cuéntanos sobre tu experiencia..."></textarea>
+                    </div>
+                    <!-- Más campos según lo requerido -->
+                    <div class="form-actions">
+                        <input type="submit" value="Cargar información">
+                        <input type="reset" value="Limpiar">
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+        
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="social-media">
+            <p>Los invitamos a seguirnos en nuestras Redes Sociales:</p>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
