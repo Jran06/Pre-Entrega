@@ -221,6 +221,6 @@ input[type="number"], input[type="date"], input[type="file"], textarea {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #ffcc66;
+    color: #333;
     font-weight: 700;
 }
