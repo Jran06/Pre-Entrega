@@ -1,9 +1,19 @@
 # Avila Food
 
-Esta es una página web para una tienda de comida Venezolana, La página incluye:
+## Descripción
+Avila Food es un sitio web de e-commerce dedicado a ofrecer los mejores productos de la gastronomía venezolana. El proyecto incluye una navegación dinámica, productos interactivos, un carrito de compras funcional y consumo de datos desde una API REST.
 
-- Una sección de productos con una variedad de opciones.
-- Un formulario de contacto.
-- Reseñas de clientes.
+## Características
+- Diseño responsivo con Flexbox y Grid.
+- Navbar responsivo con Bootstrap.
+- Consumo de API REST para mostrar productos.
+- Funcionalidades de carrito de compras con `localStorage`.
 
-@Autor Jose Rafael Araujo Nuñez
+## Tecnologías
+- HTML5 y CSS3.
+- JavaScript.
+- Bootstrap.
+- Git y GitHub.
+
+## Autor
+José Rafael Araujo Nuñez
