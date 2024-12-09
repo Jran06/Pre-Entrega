@@ -1,7 +1,7 @@
-# Avila Food
+# Avila Market
 
 ## Descripción
-Avila Food es un sitio web de e-commerce dedicado a ofrecer los mejores productos de la gastronomía venezolana. El proyecto incluye una navegación dinámica, productos interactivos, un carrito de compras funcional y consumo de datos desde una API REST.
+Avila Food es un sitio web de e-commerce dedicado a ofrecer los mejores productos. El proyecto incluye una navegación dinámica, productos interactivos, un carrito de compras funcional y consumo de datos desde una API REST.
 
 ## Características
 - Diseño responsivo con Flexbox y Grid.

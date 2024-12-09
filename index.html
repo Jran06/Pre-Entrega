@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Images/AVILA.jpg" type="image/x-icon">
-    <title>Avila Food</title>
+    <title>Avila Market</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -14,7 +14,7 @@
     <!-- Encabezado -->
     <header class="bg-dark text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="mb-0">Avila Food</h1>
+            <h1 class="mb-0">Avila Market</h1>
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('home')">Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('Menu')">Menú</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('productos')">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('reviews')">Reseñas</a></li>
                             <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contact')">Contacto</a></li>
                         </ul>
@@ -43,25 +43,58 @@
     <main>
         <section id="home" class="section active">
             <div class="container text-center py-5">
-                <h2>Bienvenidos a Avila Food</h2>
-                <p>¡Disfruta de la mejor comida Venezolana en la ciudad!</p>
-            </div>
+                <h2>¡Las Mejores Ofertas del Mes!</h2>
+                <div class="row">
+                    <!-- Contenido similar a una página de ventas -->
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="offer-card">
+                            <h3>¡Descuentos de hasta 50%!</h3>
+                            <p>Disfruta de ofertas increíbles en productos electrónicos, muebles y más. ¡No te lo pierdas!</p>
+                            <a href="#" class="btn btn-primary">Ver Ofertas</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="offer-card">
+                            <h3>Productos Destacados</h3>
+                            <p>Encuentra los productos más vendidos de la temporada, con calidad garantizada y envío rápido.</p>
+                            <a href="#" class="btn btn-primary">Ver Productos</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="offer-card">
+                            <h3>Rebajas Exclusivas</h3>
+                            <p>Rebajas por tiempo limitado. ¡Aprovecha los descuentos antes de que se agoten!</p>
+                            <a href="#" class="btn btn-primary">Explorar Rebajas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
         </section>
 
-        <section id="Menu" class="section">
+        <section id="productos" class="section">
             <div class="container py-5">
-                <h2>Menú</h2>
-                <div class="product-list d-flex flex-wrap justify-content-center gap-4"></div>
+                <h2>Productos</h2>
+                <div class="product-list d-flex flex-wrap justify-content-center gap-4">
+                    <!-- Aquí puedes agregar más productos si es necesario -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <img src="Images/Laptop.jpg" alt="Laptop Gaming" class="img-fluid">
+                            <h5>Laptop Gaming</h5>
+                            <p>$800.00</p>
+                        </div>
+                    </div>
+                    <!-- Repite este bloque para más productos -->
+                </div>
             </div>
         </section>
 
         <section id="reviews" class="section">
             <div class="container py-5">
-                <h2>Reseñas</h2>
+                <h2>Reseñas de Compra</h2>
                 <div class="reviews-grid">
-                    <div class="review">"¡Excelente sabor y servicio!" - Juan</div>
-                    <div class="review">"Me encantaron las papas fritas." - María</div>
-                    <div class="review">"Volveré sin duda." - Pedro</div>
+                    <div class="review">"Excelente calidad y precio, lo mejor de todo es la rapidez en la entrega." - Carla</div>
+                    <div class="review">"Perfecto para mis necesidades, ¡100% recomendado!" - Andrés</div>
+                    <div class="review">"Servicio al cliente excelente, y el producto llegó justo a tiempo." - Laura</div>
                 </div>
             </div>
         </section>
@@ -93,34 +126,25 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                    <h5 class="modal-title" id="cartModalLabel">Carrito</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <ul id="cartItems" class="list-group"></ul>
-                    <hr>
-                    <h5>Total: <span id="totalPrice">$0.00</span></h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-danger" onclick="clearCart()">Vaciar Carrito</button>
-                    <!-- Botón Pagar -->
-                    <button type="button" class="btn btn-success" onclick="checkout()">Pagar</button>
+                    <ul id="cartItemsList">
+                        <!-- Aquí se añadirán los productos seleccionados -->
+                    </ul>
+                    <p><strong>Total: $<span id="totalPrice">0.00</span></strong></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center bg-dark text-white py-3">
-        <p>Síguenos en nuestras Redes Sociales:</p>
-        <a href="https://www.facebook.com" target="_blank" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com" target="_blank" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" target="_blank" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-    </footer>
-
-    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
 
 
