@@ -1,13 +1,37 @@
-/* Estilos básicos */
-body {
-    font-family: 'Roboto', sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background: #f8f9fa;
-    color: #333;
+    box-sizing: border-box;
 }
 
-/* Secciones ocultas por defecto */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #343a40;
+    color: white;
+}
+
+header .navbar {
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1em;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8b400;
+}
+
 .section {
     display: none;
 }
@@ -16,191 +40,55 @@ body {
     display: block;
 }
 
-/* Encabezado */
-header {
-    background-color: #343a40;
-    color: white;
-    padding: 15px 0;
+.offer-card, .product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    margin: 0;
-}
-
-.navbar {
-    background-color: #343a40;
-}
-
-.navbar-nav .nav-link {
-    color: white;
-    padding: 10px 15px;
-}
-
-.navbar-nav .nav-link:hover {
-    background-color: #495057;
-    border-radius: 5px;
-}
-
-/* Estilos de los productos */
 .product-list {
     display: flex;
+    gap: 30px;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
 }
 
-.product {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.product:hover {
-    transform: scale(1.05);
-}
-
-.product img {
-    width: 100%;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.product button {
-    background-color: #28a745;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.product button:hover {
-    background-color: #218838;
-}
-
-/* Modal del carrito */
-#cartModal .modal-content {
-    width: 400px;
-}
-
-#cartModal .modal-body ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#cartModal .modal-footer button {
-    width: 100px;
-}
-
-#cartButton {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-}
-
-#cartButton i {
-    margin-right: 10px;
-}
-
-/* Estilos para el carrito */
-#cartCount {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* Footer */
 footer {
+    text-align: center;
+    padding: 20px;
     background-color: #343a40;
     color: white;
-    padding: 15px 0;
-    text-align: center;
 }
 
-footer a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
+footer p {
+    margin-top: 20px;
+    font-size: 1.2em;
 }
 
-footer a:hover {
-    color: #ccc;
-}
-
-/* Estilos de los formularios */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-row {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"], input[type="email"], input[type="textarea"], input[type="number"], textarea {
-    padding: 8px;
-    font-size: 1em;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 500px;
-    border: 1px solid #ccc;
-}
-
-input[type="submit"], button[type="button"] {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
+button {
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-input[type="submit"]:hover, button[type="button"]:hover {
-    background-color: #218838;
+.modal-content {
+    padding: 20px;
 }
 
-/* Diseño responsivo */
-@media (max-width: 768px) {
-    .navbar-nav {
-        flex-direction: column;
-        align-items: center;
-    }
+.product-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
 
-    .product-list {
-        flex-direction: column;
-        align-items: center;
-    }
+#cartItemsList {
+    max-height: 300px;
+    overflow-y: auto;
+}
 
-    .product {
-        width: 100%;
-        max-width: 350px;
-    }
-
-    #cartModal .modal-content {
-        width: 100%;
-    }
+/* Animación */
+.product-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
