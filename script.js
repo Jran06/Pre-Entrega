@@ -7,6 +7,38 @@ function showSection(sectionId) {
     document.getElementById(sectionId)?.classList.add('active');
 }
 
+// Validar formulario
+function validateForm(event) {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+        event.preventDefault();
+        alert("Por favor, completa todos los campos del formulario.");
+    }
+}
+
+// Cargar productos desde API
+async function loadProducts() {
+    try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const products = await response.json();
+        const productContainer = document.getElementById('productContainer');
+
+        productContainer.innerHTML = products.map(product => `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.title}" class="img-fluid">
+                <h5>${product.title}</h5>
+                <p>$${product.price.toFixed(2)}</p>
+                <button class="btn btn-primary" onclick="addToCart({ id: ${product.id}, title: '${product.title}', price: ${product.price}, image: '${product.image}' })">Añadir al carrito</button>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error("Error al cargar los productos:", error);
+    }
+}
+
 // Añadir producto al carrito
 function addToCart(product) {
     const existing = cart.find(item => item.id === product.id);
@@ -21,63 +53,34 @@ function addToCart(product) {
 // Actualizar carrito en la UI
 function updateCartUI() {
     const cartCount = document.getElementById('cartCount');
-    const cartItems = document.getElementById('cartItems');
+    const cartItemsList = document.getElementById('cartItemsList');
     const totalPrice = document.getElementById('totalPrice');
 
-    // Actualizar número de productos en el carrito
     cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-    // Mostrar los productos en el carrito
-    cartItems.innerHTML = cart
-        .map(item => `
-            <li class="list-group-item">
-                ${item.title} (x${item.quantity}) - $${item.price * item.quantity}
-            </li>
-        `)
-        .join('');
+    cartItemsList.innerHTML = cart.map(item => `
+        <li class="list-group-item">
+            ${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}
+            <button class="btn btn-sm btn-danger" onclick="removeFromCart(${item.id})">X</button>
+        </li>
+    `).join('');
 
-    // Calcular y mostrar el precio total
-    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    totalPrice.textContent = `$${total.toFixed(2)}`;
+    totalPrice.textContent = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
 }
 
-// Vaciar carrito
+// Eliminar producto del carrito
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    updateCartUI();
+}
+
+// Vaciar el carrito
 function clearCart() {
     cart = [];
     updateCartUI();
 }
 
-// Obtener productos y mostrarlos
-async function fetchProducts() {
-    try {
-        const response = await fetch('https://fakestoreapi.com/products'); // API de productos de ejemplo
-        const products = await response.json();
-        const productList = document.querySelector('.product-list');
-
-        // Limpiar cualquier producto anterior
-        productList.innerHTML = '';
-
-        // Mostrar productos en la interfaz
-        products.forEach(product => {
-            const productCard = document.createElement('div');
-            productCard.classList.add('product', 'card', 'col-md-4', 'p-3', 'text-center');
-            productCard.innerHTML = `
-                <h3>${product.title}</h3>
-                <img src="${product.image}" alt="${product.title}" class="card-img-top" style="height: 150px; object-fit: contain;">
-                <p>${product.description.substring(0, 100)}...</p>
-                <p><strong>$${product.price}</strong></p>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            `;
-            // Añadir el evento para el botón "Añadir al carrito"
-            productCard.querySelector('button').addEventListener('click', () => addToCart(product));
-
-            // Agregar la tarjeta al contenedor de productos
-            productList.appendChild(productCard);
-        });
-    } catch (error) {
-        console.error("Error al obtener los productos:", error);
-    }
-}
-
-// Ejecutar la función de obtener productos cuando la página se haya cargado
-document.addEventListener('DOMContentLoaded', fetchProducts);
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
+    loadProducts();
+});
